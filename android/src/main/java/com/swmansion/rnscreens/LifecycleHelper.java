@@ -15,6 +15,9 @@ import javax.annotation.Nullable;
 public class LifecycleHelper {
 
   public static @Nullable Fragment findNearestScreenFragmentAncestor(View view) {
+    if (view == null) {
+      return null;
+    }
     ViewParent parent = view.getParent();
     while (parent != null && !(parent instanceof Screen)) {
       parent = parent.getParent();
